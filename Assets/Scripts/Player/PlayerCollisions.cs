@@ -9,6 +9,7 @@ public class PlayerCollisions : MonoBehaviour
         if (collision.transform.tag == "Obstacle")
         {
             PlayerManager.isGameOver = true;
+            PlayerManager.Instance.GameOver();
             gameObject.SetActive(false);
         }
     }
