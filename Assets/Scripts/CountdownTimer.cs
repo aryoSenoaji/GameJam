@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
+using System.Collections.Generic;
 
 public class CountdownTimer : MonoBehaviour
 {
@@ -8,19 +9,13 @@ public class CountdownTimer : MonoBehaviour
     private int waitSecInt;
     public TextMeshProUGUI timerText;
 
-    // Reference to the PlayerManager script
-    public PlayerManager playerManager;
-
-    // Reference to the Player object
-    public GameObject player;
-
-    // Additional time to be added on each checkpoint
-    public float additionalTimeOnCheckpoint = 5f;
+    // Dictionary to track activated checkpoints
+    private Dictionary<GameObject, bool> activatedCheckpoints = new Dictionary<GameObject, bool>();
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (waitSec > 0 && !PlayerManager.isGameOver)
+        if (waitSec > 0)
         {
             waitSec -= Time.fixedDeltaTime;
             waitSecInt = Mathf.CeilToInt(waitSec);
@@ -28,24 +23,34 @@ public class CountdownTimer : MonoBehaviour
         }
         else
         {
-            // Handle actions after the countdown reaches 0 or game over
+            // Handle actions after the countdown reaches 0
             if (!PlayerManager.isGameOver)
             {
                 PlayerManager.isGameOver = true;
-                playerManager.GameOver();
-                player.SetActive(false); // Deactivate the player object
+                PlayerManager.Instance.GameOver();
+                GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+                if (playerObject != null)
+                {
+                    Destroy(playerObject); // Destroy the player object
+                }
             }
         }
     }
 
-    // Call this function when a checkpoint is triggered
-    public void AddTimeOnCheckpoint(float checkpointTimeBonus)
+    public void AddTimeOnCheckpoint(float checkpointTimeBonus, GameObject checkpointObject)
     {
-        // Add the specific time bonus to the countdown timer
-        waitSec += checkpointTimeBonus;
+        // Check if the checkpoint has already been activated
+        if (!activatedCheckpoints.ContainsKey(checkpointObject) || !activatedCheckpoints[checkpointObject])
+        {
+            // Add the specific time bonus to the countdown timer
+            waitSec += checkpointTimeBonus;
 
-        // Update the display immediately
-        waitSecInt = Mathf.CeilToInt(waitSec);
-        timerText.text = waitSecInt.ToString();
+            // Update the display immediately
+            waitSecInt = Mathf.CeilToInt(waitSec);
+            timerText.text = waitSecInt.ToString();
+
+            // Set the flag to indicate that the bonus has been applied
+            activatedCheckpoints[checkpointObject] = true;
+        }
     }
 }

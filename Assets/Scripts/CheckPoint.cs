@@ -8,7 +8,7 @@ public class CheckPoint : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
             PlayerManager.lastCheckPointPos = transform.position;
 
@@ -16,8 +16,11 @@ public class CheckPoint : MonoBehaviour
             CountdownTimer countdownTimer = FindObjectOfType<CountdownTimer>();
             if (countdownTimer != null)
             {
-                countdownTimer.AddTimeOnCheckpoint(checkpointTimeBonus);
+                countdownTimer.AddTimeOnCheckpoint(checkpointTimeBonus, gameObject);
             }
+
+            // Disable the collider to prevent additional triggers by the same checkpoint
+            GetComponent<Collider2D>().enabled = false;
         }
     }
 }
