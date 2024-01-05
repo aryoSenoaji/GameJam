@@ -12,27 +12,39 @@ public class CountdownTimer : MonoBehaviour
     // Dictionary to track activated checkpoints
     private Dictionary<GameObject, bool> activatedCheckpoints = new Dictionary<GameObject, bool>();
 
-    // Update is called once per frame
-    void FixedUpdate()
+    // Flag to check if the game is over
+    private bool isGameOver = false;
+
+    // Reference to the countdown coroutine
+    private Coroutine countdownCoroutine;
+
+    // Start the countdown coroutine
+    void Start()
     {
-        if (waitSec > 0)
+        countdownCoroutine = StartCoroutine(StartCountdown());
+    }
+
+    // Coroutine for the countdown logic
+    IEnumerator StartCountdown()
+    {
+        while (waitSec > 0 && !isGameOver)
         {
-            waitSec -= Time.fixedDeltaTime;
+            waitSec -= Time.deltaTime;
             waitSecInt = Mathf.CeilToInt(waitSec);
             timerText.text = waitSecInt.ToString();
+            yield return null;
         }
-        else
+
+        // Handle actions after the countdown reaches 0 or game over
+        if (!isGameOver)
         {
-            // Handle actions after the countdown reaches 0
-            if (!PlayerManager.isGameOver)
+            isGameOver = true;  // Set the game over flag
+            PlayerManager.isGameOver = true;
+            PlayerManager.Instance.GameOver();
+            GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+            if (playerObject != null)
             {
-                PlayerManager.isGameOver = true;
-                PlayerManager.Instance.GameOver();
-                GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
-                if (playerObject != null)
-                {
-                    Destroy(playerObject); // Destroy the player object
-                }
+                Destroy(playerObject); // Destroy the player object
             }
         }
     }
@@ -51,6 +63,15 @@ public class CountdownTimer : MonoBehaviour
 
             // Set the flag to indicate that the bonus has been applied
             activatedCheckpoints[checkpointObject] = true;
+        }
+    }
+
+    // Stop the countdown coroutine
+    public void StopCountdown()
+    {
+        if (countdownCoroutine != null)
+        {
+            StopCoroutine(countdownCoroutine);
         }
     }
 }

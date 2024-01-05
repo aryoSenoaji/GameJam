@@ -53,5 +53,12 @@ public class PlayerManager : MonoBehaviour
         // Additional actions when the game is over
         // You can add more actions or UI updates here
         Debug.Log("Game Over");
+
+        // Stop the countdown timer
+        CountdownTimer countdownTimer = FindObjectOfType<CountdownTimer>();
+        if (countdownTimer != null)
+        {
+            countdownTimer.StopCountdown();
+        }
     }
 }
