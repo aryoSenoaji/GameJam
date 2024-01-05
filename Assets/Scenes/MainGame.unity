@@ -266,6 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9925f7302d9b2eb4eaa570af0d9d5797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkpointTimeBonus: 10
 --- !u!1 &165409553
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,6 +424,7 @@ MonoBehaviour:
   timerText: {fileID: 727058314}
   playerManager: {fileID: 1839428152}
   player: {fileID: 1839225752}
+  additionalTimeOnCheckpoint: 5
 --- !u!114 &244325701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -882,7 +884,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &582999657
 Transform:
   m_ObjectHideFlags: 0
@@ -1559,6 +1561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9925f7302d9b2eb4eaa570af0d9d5797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkpointTimeBonus: 5
 --- !u!61 &965904099
 BoxCollider2D:
   m_ObjectHideFlags: 0

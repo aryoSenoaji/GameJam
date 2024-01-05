@@ -14,6 +14,9 @@ public class CountdownTimer : MonoBehaviour
     // Reference to the Player object
     public GameObject player;
 
+    // Additional time to be added on each checkpoint
+    public float additionalTimeOnCheckpoint = 5f;
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -33,5 +36,16 @@ public class CountdownTimer : MonoBehaviour
                 player.SetActive(false); // Deactivate the player object
             }
         }
+    }
+
+    // Call this function when a checkpoint is triggered
+    public void AddTimeOnCheckpoint(float checkpointTimeBonus)
+    {
+        // Add the specific time bonus to the countdown timer
+        waitSec += checkpointTimeBonus;
+
+        // Update the display immediately
+        waitSecInt = Mathf.CeilToInt(waitSec);
+        timerText.text = waitSecInt.ToString();
     }
 }
