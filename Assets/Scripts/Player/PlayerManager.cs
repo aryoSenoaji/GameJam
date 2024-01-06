@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,6 +12,9 @@ public class PlayerManager : MonoBehaviour
     public GameObject gameOverScreen;
 
     public static Vector2 lastCheckPointPos = new Vector2(0, 0);
+
+    public static int numberOfNuts;
+    public TextMeshProUGUI nutsText;
 
     private void Awake()
     {
@@ -37,6 +41,7 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        nutsText.text = numberOfNuts.ToString();
         if (isGameOver)
         {
             gameOverScreen.SetActive(true);
