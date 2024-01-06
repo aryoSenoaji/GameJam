@@ -45,6 +45,7 @@ public class PlayerManager : MonoBehaviour
         if (isGameOver)
         {
             gameOverScreen.SetActive(true);
+            ResetScore(); // Call ResetScore when the game is over
         }
     }
 
@@ -65,5 +66,11 @@ public class PlayerManager : MonoBehaviour
         {
             countdownTimer.StopCountdown();
         }
+    }
+
+    // Method to reset the score
+    private void ResetScore()
+    {
+        numberOfNuts = 0; // Set the score back to its initial state
     }
 }
