@@ -10,6 +10,7 @@ public class PlayerManager : MonoBehaviour
 
     public static bool isGameOver;
     public GameObject gameOverScreen;
+    public GameObject pauseMenuScreen;
 
     public static Vector2 lastCheckPointPos = new Vector2(0, 0);
 
@@ -52,6 +53,23 @@ public class PlayerManager : MonoBehaviour
     public void ReplayGame()
     {
         SceneManager.LoadScene("MainGame");
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+        pauseMenuScreen.SetActive(true);
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+        pauseMenuScreen.SetActive(false);
+    }
+
+    public void GoToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void GameOver()
