@@ -13,7 +13,6 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded;
     public Transform groundCheck;
     public LayerMask groundLayer;
-    
 
     public Rigidbody2D rb;
     public Animator animator;
@@ -26,6 +25,10 @@ public class PlayerMovement : MonoBehaviour
         controls.Movement.Move.performed += ctx =>
         {
             direction = ctx.ReadValue<float>();
+            if (Mathf.Abs(direction) > 0.1f && isGrounded)
+            {
+                AudioManager.instance.Play("Walk");
+            }
         };
 
         controls.Movement.Jump.performed += ctx => Jump();
@@ -56,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            AudioManager.instance.Play("Jump");
         }
     }
 }

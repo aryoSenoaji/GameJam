@@ -10,6 +10,7 @@ public class PlayerCollisions : MonoBehaviour
         {
             PlayerManager.isGameOver = true;
             PlayerManager.Instance.GameOver();
+            AudioManager.instance.Play("GameOver");
             gameObject.SetActive(false);
         }
     }

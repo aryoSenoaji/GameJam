@@ -19,6 +19,7 @@ public class Nut : MonoBehaviour
                 // If it's not the first nut, increment the score by 100
                 PlayerManager.numberOfNuts += 1;
             }
+            AudioManager.instance.Play("Nuts");
 
             Destroy(gameObject);
         }

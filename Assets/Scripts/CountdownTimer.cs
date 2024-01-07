@@ -41,6 +41,7 @@ public class CountdownTimer : MonoBehaviour
             isGameOver = true;  // Set the game over flag
             PlayerManager.isGameOver = true;
             PlayerManager.Instance.GameOver();
+            AudioManager.instance.Play("GameOver");
             GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
             if (playerObject != null)
             {

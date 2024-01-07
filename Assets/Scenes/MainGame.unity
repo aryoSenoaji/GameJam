@@ -1710,6 +1710,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 383756836}
+  - component: {fileID: 383756837}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -1732,6 +1733,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &383756837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383756835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a86715d6b0640c438465d153c533457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Jump
+    clip: {fileID: 8300000, guid: 019b44d8345a8064e892e91207c2a5cc, type: 3}
+    mixer: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: GameOver
+    clip: {fileID: 8300000, guid: 6795545ad7d266e4fad0c8a89d38821b, type: 3}
+    mixer: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Nuts
+    clip: {fileID: 8300000, guid: d594c8ebd69f7b344bb5f33364b7b711, type: 3}
+    mixer: {fileID: 0}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Checkpoint
+    clip: {fileID: 8300000, guid: 99d1e1495c6801f458068a300b41cbf3, type: 3}
+    mixer: {fileID: 0}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Walk
+    clip: {fileID: 8300000, guid: 597f28298d992cd46bcff70af7a3ef17, type: 3}
+    mixer: {fileID: 0}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
 --- !u!4 &416874577 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5306703186900930284, guid: df2eae040a42b3a4389e3722c2f63152, type: 3}
@@ -10568,8 +10617,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37f435eea104b634388a56044db2bf1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverScreen: {fileID: 1759075441}
-  pauseMenuScreen: {fileID: 1571522105}
+  gameOverScreen: {fileID: 178869789}
+  pauseMenuScreen: {fileID: 295671993}
   nutsText: {fileID: 1506205910}
 --- !u!1 &1902590996
 GameObject:
@@ -11731,6 +11780,7 @@ MonoBehaviour:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 383756836}
   - {fileID: 519420032}
   - {fileID: 432325534}
   - {fileID: 619394802}
@@ -11742,4 +11792,3 @@ SceneRoots:
   - {fileID: 1839428151}
   - {fileID: 1023396804}
   - {fileID: 1407526288}
-  - {fileID: 383756836}

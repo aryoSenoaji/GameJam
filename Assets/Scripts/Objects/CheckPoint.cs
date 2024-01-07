@@ -11,6 +11,7 @@ public class CheckPoint : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             PlayerManager.lastCheckPointPos = transform.position;
+            AudioManager.instance.Play("Checkpoint");
 
             // Find the CountdownTimer in the scene and call AddTimeOnCheckpoint
             CountdownTimer countdownTimer = FindObjectOfType<CountdownTimer>();
