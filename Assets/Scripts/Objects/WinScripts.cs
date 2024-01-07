@@ -9,7 +9,7 @@ public class WinScripts : MonoBehaviour
     {
         if (collision.transform.tag == "Player")
         {
-            SceneManager.LoadScene("WinScreen");
+            SceneManager.LoadScene("WinScreen2");
         }
     }
 }
