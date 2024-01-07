@@ -4075,7 +4075,7 @@ GameObject:
   - component: {fileID: 865118073}
   - component: {fileID: 865118074}
   m_Layer: 5
-  m_Name: BGM
+  m_Name: Sound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9794,7 +9794,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1382748094
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10195,7 +10195,7 @@ GameObject:
   - component: {fileID: 1408604073}
   - component: {fileID: 1408604072}
   m_Layer: 5
-  m_Name: BGMText
+  m_Name: Sound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10240,7 +10240,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: BGM
+  m_text: Sound
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6c6f85dadfb48fe418963e2ae35a3168, type: 2}
   m_sharedMaterial: {fileID: -30758400065753398, guid: 6c6f85dadfb48fe418963e2ae35a3168, type: 2}
@@ -11409,7 +11409,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1580441846
 RectTransform:
   m_ObjectHideFlags: 0
