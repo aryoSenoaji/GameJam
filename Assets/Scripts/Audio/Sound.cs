@@ -7,7 +7,8 @@ public class Sound {
 	public string name;
 
 	public AudioClip clip;
-	public AudioMixerGroup mixer;
+    public bool isBGM = false;
+    public AudioMixerGroup mixer;
 
 	[Range(0f, 1f)]
 	public float volume = 1;

@@ -1746,15 +1746,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: Jump
-    clip: {fileID: 8300000, guid: 019b44d8345a8064e892e91207c2a5cc, type: 3}
+  - name: BGM
+    clip: {fileID: 8300000, guid: 58ebce19e44f67c42a31852e4ec1fc86, type: 3}
+    isBGM: 1
     mixer: {fileID: 0}
-    volume: 1
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Walk
+    clip: {fileID: 8300000, guid: 597f28298d992cd46bcff70af7a3ef17, type: 3}
+    isBGM: 0
+    mixer: {fileID: 0}
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: GameOver
-    clip: {fileID: 8300000, guid: 6795545ad7d266e4fad0c8a89d38821b, type: 3}
+  - name: Jump
+    clip: {fileID: 8300000, guid: 019b44d8345a8064e892e91207c2a5cc, type: 3}
+    isBGM: 0
     mixer: {fileID: 0}
     volume: 1
     pitch: 1
@@ -1762,6 +1772,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Nuts
     clip: {fileID: 8300000, guid: d594c8ebd69f7b344bb5f33364b7b711, type: 3}
+    isBGM: 0
     mixer: {fileID: 0}
     volume: 0.5
     pitch: 1
@@ -1769,17 +1780,19 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Checkpoint
     clip: {fileID: 8300000, guid: 99d1e1495c6801f458068a300b41cbf3, type: 3}
+    isBGM: 0
     mixer: {fileID: 0}
     volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Walk
-    clip: {fileID: 8300000, guid: 597f28298d992cd46bcff70af7a3ef17, type: 3}
+  - name: GameOver
+    clip: {fileID: 8300000, guid: 6795545ad7d266e4fad0c8a89d38821b, type: 3}
+    isBGM: 0
     mixer: {fileID: 0}
-    volume: 0.5
+    volume: 1
     pitch: 1
-    loop: 1
+    loop: 0
     source: {fileID: 0}
 --- !u!4 &416874577 stripped
 Transform:
