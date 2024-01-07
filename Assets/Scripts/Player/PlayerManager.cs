@@ -69,6 +69,7 @@ public class PlayerManager : MonoBehaviour
 
     public void GoToMenu()
     {
+        Time.timeScale = 1; // Set the time scale to normal
         SceneManager.LoadScene("MainMenu");
     }
 
