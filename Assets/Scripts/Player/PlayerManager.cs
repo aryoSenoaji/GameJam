@@ -69,6 +69,7 @@ public class PlayerManager : MonoBehaviour
 
     public void GoToMenu()
     {
+        ResetProgress();  // Reset progress before returning to the main menu
         Time.timeScale = 1; // Set the time scale to normal
         SceneManager.LoadScene("MainMenu");
     }
@@ -91,5 +92,26 @@ public class PlayerManager : MonoBehaviour
     private void ResetScore()
     {
         numberOfNuts = 0; // Set the score back to its initial state
+    }
+
+    private void ResetProgress()
+    {
+        // Clear any saved data or player preferences here
+        // Reset all relevant variables to their initial state
+        numberOfNuts = 0;
+        lastCheckPointPos = new Vector2(-8, -2);
+
+        // Reset checkpoint-related data
+        ResetCheckpoints();
+    }
+
+    private void ResetCheckpoints()
+    {
+        // Enable all checkpoint colliders in the scene
+        CheckPoint[] checkpoints = FindObjectsOfType<CheckPoint>();
+        foreach (CheckPoint checkpoint in checkpoints)
+        {
+            checkpoint.GetComponent<Collider2D>().enabled = true;
+        }
     }
 }

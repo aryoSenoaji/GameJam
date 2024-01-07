@@ -9,6 +9,10 @@ public class WinScripts : MonoBehaviour
     {
         if (collision.transform.tag == "Player")
         {
+            // Set the respawn position in the PlayerManager
+            PlayerManager.lastCheckPointPos = new Vector2(-8, -2);
+
+            // Load the WinScreen2 scene
             SceneManager.LoadScene("WinScreen2");
         }
     }
